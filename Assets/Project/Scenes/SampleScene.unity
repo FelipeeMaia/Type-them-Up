@@ -831,8 +831,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1972629683}
   - component: {fileID: 1972629682}
+  - component: {fileID: 1972629684}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -908,6 +909,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972629684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972629681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f397c9ccee1e24688feab22e101e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rowsPositions:
+  - -6.5
+  - -3.25
+  - 0
+  - 3.25
+  - 6.5
+  _activeRow: 2
+  _duration: 0.2
+  _jumpPower: -0.5
 --- !u!1 &2109823926
 GameObject:
   m_ObjectHideFlags: 0
