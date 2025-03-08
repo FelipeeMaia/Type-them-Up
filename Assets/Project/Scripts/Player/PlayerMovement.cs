@@ -18,7 +18,6 @@ namespace TypemUp.Player
 
         bool canMove = true;
 
-
         private void TryChangeRows(int direction)
         {
             if (!canMove) return;

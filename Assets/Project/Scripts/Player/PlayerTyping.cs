@@ -16,7 +16,6 @@ namespace TypemUp.Player
                 if(CheckForLetter(out char character))
                 {
                     OnType?.Invoke(character);
-                    Debug.Log("Player typed a letter: " + character);
                 }
             }
         }

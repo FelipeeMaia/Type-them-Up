@@ -1,26 +1,23 @@
 using System;
 using System.Collections.Generic;
-using TypemUp.Player;
 using UnityEngine;
 
 namespace TypemUp.Enemy
 {
     public class EnemyTarget : MonoBehaviour
     {
-        [SerializeField] int _listLength;
-        [SerializeField] List<char> _letters;
-        [SerializeField] PlayerTyping _player;
+        private List<char> _letters;
+        private int _listLength;
 
         public Action<List<char>> OnLettersChange;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public void SetUp(int letterQuantity)
         {
+            _listLength = letterQuantity;
             SetLetters();
-            _player.OnType += CheckLetter;
         }
 
-        void CheckLetter(char typed)
+        public void CheckLetter(char typed)
         {
             if(typed == _letters[0])
             {
@@ -33,11 +30,10 @@ namespace TypemUp.Enemy
                 else
                 {
                     Debug.Log("Alvo derrotado");
-                    SetLetters();
+                    Destroy(gameObject);
                 }
             }
         }
-
 
         void SetLetters()
         {

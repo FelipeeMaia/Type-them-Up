@@ -7,18 +7,20 @@ namespace TypemUp.Enemy.UI
     public class EnemyUI : MonoBehaviour
     {
         [SerializeField] TMP_Text _lettersDisplay;
-        [SerializeField] EnemyTarget _parent;
+        [SerializeField] EnemyTarget _target;
         [SerializeField] Vector3 _offset = new Vector3(0, 2, 0);
 
-        Transform _parentTransform;
+        Transform _targetTransform;
         private RectTransform _uiElement;
         private Camera _camera;    
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public void SetUp(EnemyTarget target)
         {
-            _parent.OnLettersChange += UpdateDisplay;
-            _parentTransform = _parent.transform;
+            this._target = target;
+
+            _target.OnLettersChange += UpdateDisplay;
+            _targetTransform = _target.transform;
 
             _uiElement = GetComponent<RectTransform>();
             _camera = Camera.main;
@@ -26,10 +28,10 @@ namespace TypemUp.Enemy.UI
 
         private void Update()
         {
-            if (_parentTransform != null)
+            if (_targetTransform != null)
             {
                 // Convert world position to screen point
-                Vector3 worldPosition = _parentTransform.position + _offset;
+                Vector3 worldPosition = _targetTransform.position + _offset;
                 Vector3 screenPosition = _camera.WorldToScreenPoint(worldPosition);
 
                 // Check if object is behind the camera
